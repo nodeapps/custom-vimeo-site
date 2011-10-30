@@ -11,7 +11,8 @@ A simple web site that uses the Vimeo API to build a custom videos page
 
 # Configuration
 
-In order to run the `custom-vimeo-site` application, you will need to modify the `config.json` with your nodejitsu credentials.
+In order to run the `custom-vimeo-site` application, you will need to specify a channel ID in `config.json` file.
+
 ```js
 {
   "sitename": "My Vimeo Site",
@@ -19,8 +20,8 @@ In order to run the `custom-vimeo-site` application, you will need to modify the
 }
 ```
 
-* sitename: Title of the site
-* channel: Channel ID to load videos from
+* **sitename:** *Title of the site*
+* **channel:** *Channel ID to load videos from*
 
 # Usage
 
