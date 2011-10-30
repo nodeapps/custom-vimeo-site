@@ -1,0 +1,28 @@
+{
+  "author": "Nodejitsu <support@nodejitsu.com>",
+  "name": "custom-vimeo-site",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "./bin/server"
+  },
+  "main": "./lib/videos.js",
+  "engines": {
+    "node": "0.4.0"
+  },
+  "dependencies": {
+    "express": "v2.4.7",
+    "async": "0.1.12",
+    "qs": "v0.3.1",
+    "request": "v2.1.1",
+    "ejs": "v0.4.x",
+    "nconf": "v0.4.x",
+    "connect": "*",
+    "mime": "*",
+    "ini": "*",
+    "pkginfo": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "./bin/server"
+  }
+}

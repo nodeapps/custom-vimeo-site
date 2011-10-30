@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+var videos = require("../lib/videos");
+var express = require("express");
+var async = require("async");
+var fs = require("fs");
+var config = require("nconf").loadFilesSync([__dirname +"/../config.json"]);
+
+config.port = config.port || 8080;
+
+//set up an express app
+var app = express.createServer();
+
+app.set("view options", { "layout": false });
+
+app.use(express.static("./static/"));
+
+app.get("/", function (req, res) {
+    videos.list(config, function (err, vids) {
+        async.map(vids, function (vid, cb) {
+            videos.getHtml(vid, {"width": "500px"}, function (err, embed) {
+                vid.embed = embed;
+                cb(err, vid);
+            });
+        }, function (err, videos) {
+            if (err) { throw err; }
+
+            res.render("videos.ejs", {
+                username: config.sitename || config.username || config.channel,
+                videos: videos
+            });
+        });
+    });
+});
+
+app.listen(config.port);
+
+console.log("custom vimeo site started on port " + config.port);
