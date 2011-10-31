@@ -1,12 +1,21 @@
 # Node Apps
 ## custom-vimeo-site
 
-A simple web site that uses the Vimeo API to build a custom videos page
+A simple web site that uses the Vimeo API to create a custom Vimeo home page
+
+# Live demo
+
+[http://nodetuts.nodejitsu.com/](http://nodetuts.nodejitsu.com/)
+
+Sample custom Vimeo site using Vimeo videos from [http://nodetuts.com/](http://nodetuts.com/) by [Pedro Teixeira](http://github.com/pgte/)
+
 
 ![](https://github.com/nodeapps/custom-vimeo-site/raw/master/screenshots/custom-vimeo-site.png)
 
 # Installation
 
+    mkdir myapp
+    cd myapp/
     jitsu install custom-vimeo-site
 
 *If you do not have `jitsu` installed you can install it via `npm install jitsu -g`*
@@ -29,14 +38,12 @@ In order to run the `custom-vimeo-site` application, you will need to specify a 
 
 ### Starting locally
 
-    cd custom-vimeo-site/
     node bin/server
 
 *Now you can visit http://localhost:8080 to view your node apps*
 
 ### Deploy to nodejitsu
 
-    cd custom-vimeo-site/
     jitsu deploy
 
 *You will now be prompted for a `subdomain` to deploy your application on*
