@@ -3,6 +3,8 @@
 
 A simple web site that uses the Vimeo API to build a custom videos page
 
+![](https://github.com/nodeapps/custom-vimeo-site/raw/master/screenshots/custom-vimeo-site.png)
+
 # Installation
 
     jitsu install custom-vimeo-site
