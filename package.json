@@ -1,5 +1,6 @@
 {
   "author": "Nodejitsu <support@nodejitsu.com>",
+  "description": "a simple web site that uses the Vimeo API to create a custom Vimeo home page",
   "name": "custom-vimeo-site",
   "version": "0.1.0",
   "scripts": {
@@ -7,7 +8,7 @@
   },
   "main": "./lib/videos.js",
   "engines": {
-    "node": "0.4.0"
+    "node": ">= 0.4.x"
   },
   "dependencies": {
     "express": "v2.4.7",
@@ -16,10 +17,10 @@
     "request": "v2.1.1",
     "ejs": "v0.4.x",
     "nconf": "v0.4.x",
-    "connect": "*",
-    "mime": "*",
-    "ini": "*",
-    "pkginfo": "*"
+    "connect": "v1.7.2",
+    "mime": "v1.2.4",
+    "ini": "v1.0.1",
+    "pkginfo": "v0.2.2"
   },
   "devDependencies": {},
   "scripts": {
