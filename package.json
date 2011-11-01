@@ -25,5 +25,6 @@
   "devDependencies": {},
   "scripts": {
     "start": "./bin/server"
-  }
+  },
+  "analyze": false
 }
