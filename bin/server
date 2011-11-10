@@ -1,38 +1,48 @@
-#!/usr/bin/env node
+var flatiron = require('flatiron'),
+    util = require('utile'),
+    fs = require('fs'),
+    videos = require('../lib/videos'),
+    ejs = require('ejs'),
+    config = require('nconf').load,
+    app = flatiron.app;
 
-var videos = require("../lib/videos");
-var express = require("express");
-var async = require("async");
-var fs = require("fs");
-var config = require("nconf").loadFilesSync([__dirname +"/../config.json"]);
+app.use(flatiron.plugins.config);
+app.use(flatiron.plugins.http);
 
-config.port = config.port || 8080;
+app.config.use("file", { "file": __dirname + "/../config.json"});
+app.config.set("port", app.config.get("port") || 8080);
 
-//set up an express app
-var app = express.createServer();
+// This route breaks.
+app.router.get("/", function (req, res) {
 
-app.set("view options", { "layout": false });
+  // Straight from the olde express app
+  videos.list(app.config, function (err, vids) {
+    util.async.map(vids, function (vid, cb) {
+      videos.getHtml(vid, {"width": "500px"}, function (err, embed) {
+        vid.embed = embed;
+        cb(err, vid);
+      });
+    }, function (err, videos) {
+      if (err) {
+        throw err;
+      }
 
-app.use(express.static("./static/"));
+      res.end(ejs.render("videos.ejs", {
+        username: config.sitename || config.username || config.channel,
+        videos: videos
+      }));
 
-app.get("/", function (req, res) {
-    videos.list(config, function (err, vids) {
-        async.map(vids, function (vid, cb) {
-            videos.getHtml(vid, {"width": "500px"}, function (err, embed) {
-                vid.embed = embed;
-                cb(err, vid);
-            });
-        }, function (err, videos) {
-            if (err) { throw err; }
-
-            res.render("videos.ejs", {
-                username: config.sitename || config.username || config.channel,
-                videos: videos
-            });
-        });
+      res.emit("next");
     });
+  });
+
 });
 
-app.listen(config.port);
+app.init(function (err) {
+  if (err) {
+    // We need a "nice" error reporting module. Reading the raw json is nuts.
+    throw err;
+  }
 
-console.log("custom vimeo site started on port " + config.port);
+  app.start(8080);
+});

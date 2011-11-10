@@ -11,16 +11,15 @@
     "node": ">= 0.4.x"
   },
   "dependencies": {
-    "express": "v2.4.7",
-    "async": "0.1.12",
-    "qs": "v0.3.1",
-    "request": "v2.1.1",
-    "ejs": "v0.4.x",
-    "nconf": "v0.4.x",
-    "connect": "v1.7.2",
-    "mime": "v1.2.4",
-    "ini": "v1.0.1",
-    "pkginfo": "v0.2.2"
+    "flatiron": "0.1.x",
+    "utile": "0.0.x",
+    "qs": "0.3.1",
+    "request": "2.1.1",
+    "ejs": "0.4.x",
+    "union": "0.1.x",
+    "mime": "1.2.4",
+    "ini": "1.0.1",
+    "pkginfo": "q0.2.2"
   },
   "devDependencies": {},
   "scripts": {
