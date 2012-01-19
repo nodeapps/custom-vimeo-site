@@ -1,15 +1,31 @@
 {
-  "author": "Nodejitsu <support@nodejitsu.com>",
-  "description": "a simple web site that uses the Vimeo API to create a custom Vimeo home page",
   "name": "custom-vimeo-site",
   "version": "0.1.0",
+  "author": "Nodejitsu <support@nodejitsu.com>",
+  "description": "a simple web site that uses the Vimeo API to create a custom Vimeo home page",
+  "main": "./lib/videos.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nodeapps/custom-vimeo-site.git"
+  },
+  "keywords": [
+    "nodeapps",
+    "vimeo"
+  ],
+  "homepage": "http://nodeapps.github.com/custom-vimeo-site",
   "scripts": {
     "start": "./bin/server"
   },
-  "main": "./lib/videos.js",
-  "engines": {
-    "node": ">= 0.4.x"
-  },
+  "contributors": [
+    {
+      "name": "Marak Squires",
+      "email": "marak.squires@gmail.com"
+    },
+    {
+      "name": "Joshua Holbrook",
+      "email": "josh.holbrook@gmail.com"
+    }
+  ],
   "dependencies": {
     "express": "v2.4.7",
     "async": "0.1.12",
@@ -23,8 +39,17 @@
     "pkginfo": "v0.2.2"
   },
   "devDependencies": {},
-  "scripts": {
-    "start": "./bin/server"
+  "engines": {
+    "node": ">= 0.4.x"
   },
+  "bugs": {
+    "url": "https://github.com/nodeapps/custom-vimeo-site/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/nodeapps/custom-vimeo-site/raw/master/LICENSE"
+    }
+  ],
   "analyze": false
 }
